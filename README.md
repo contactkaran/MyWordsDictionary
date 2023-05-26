@@ -10,11 +10,14 @@ Material icons
 Dagger Hilt
 Retrofit API
 Room local database
+Also enabled  isExperimental = true in   compileOptions{}
 
 Project Gradle - added compose - RECHECK
 dagger hilt plugins
 
 scaffold and navController States
 using remember to create immutable states (user uneditable). Otherwise use mutableStateOf for mutable user-changeable states.
+
+Setting Navigation
 
 
