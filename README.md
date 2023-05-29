@@ -56,9 +56,10 @@ Domain> Model > Entity > WordDataEntity - **ROOM Database**
 data class aka TABLE with rows - autoGenerate True, id, word,phonetic, meanings, sourceURLs, date
 The Entity folder is dedicated to storing the data models that represent the structure and schema of the database tables. 
 
-Domain > Use case (Business Logic) > 
+Domain > Use_case (Business Logic) > 
 AddIntoSaved - calls SavedWordsRepo
 RemoveFromSaved calls deleteFromSaved using a suspen operator function
+IsExistWord calls SavedWordsRepo with a suspend operator fun invoke WORD
 
 
 The "use case" folder helps to adhere to the Single Responsibility Principle by providing a dedicated location for implementing individual use cases or business operations
@@ -76,6 +77,9 @@ Adding Helper class (parameterized with a generic type T) in Utils package - Dat
 
 
 **Presentation**:
-
+ViewModel is a class that is part of the Android Architecture Components. It is designed to store and manage UI-related data in a lifecycle-aware manner
 WordDataViewModel - HILTViewModel - Inject Constructor - GetWordData, AddIntoSaved(calls SavedWordsRepo), RemoveFromSaved, IsExistWord
+
+_Within the WordViewModel class:_
+
 
