@@ -5,6 +5,7 @@ Steps: Manifest - Internet permissions
 
 Dependencies: App Gradle - added kotlin-kapt and Dagger hilt plugins
 Make sure JVM and kotlin compiler versions are compatible
+Splash API dependency added
 
 **Following dpendencies added:**
 Compose Navigation
@@ -35,12 +36,7 @@ onClick for each of the navigation buttons
 
 Setting Navigation
 
-
-
-
-**Packages within Domain:**
-
-
+**Domain:**
 
 Domain > Repos Interfaces:
 WordDataRepo which extends Kotlin Coroutine Flow for DataStatus
