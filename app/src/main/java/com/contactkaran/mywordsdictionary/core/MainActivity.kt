@@ -32,6 +32,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import com.contactkaran.mywordsdictionary.presentation.AppBottomNavGraph
 import com.contactkaran.mywordsdictionary.presentation.Destinations
@@ -41,6 +42,14 @@ import com.contactkaran.mywordsdictionary.ui.theme.MyWordsDictionaryTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+//TODO - inserting Splash
+        installSplashScreen()
+
+
+
+
+
         setContent {
             val scaffoldState = rememberScaffoldState()
             val navController = rememberNavController()

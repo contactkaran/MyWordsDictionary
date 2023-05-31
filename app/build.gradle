@@ -70,6 +70,9 @@ dependencies {
     // Compose Navigation
     implementation "androidx.navigation:navigation-compose:2.5.3"
 
+    //Splash API
+    implementation "androidx.core:core-splashscreen:1.0.1"
+
     //Material icons
     implementation "androidx.compose.material:material-icons-extended:1.4.3"
 
@@ -91,6 +94,7 @@ dependencies {
     kapt "androidx.room:room-compiler:2.5.1"
 
     //Scaffold
-    implementation 'androidx.compose.material:material:1.5.0-alpha04'
-    implementation 'androidx.compose.runtime:runtime-livedata:1.5.0-alpha04'
+    implementation 'androidx.compose.material:material:1.5.0-beta01'
+    implementation 'androidx.compose.runtime:runtime-livedata:1.5.0-beta01'
+
 }
