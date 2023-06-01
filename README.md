@@ -78,7 +78,11 @@ Meaning - ListOf Definition, partOfSpeech
 WordData - word, phonetic, listOf Meaning, sourceURLs, isSaved(favorited)
 
 
-Domain> Mappers > Mapper.kt  (comes after DTOs) and other Remote package components
+Domain> Mappers > Mapper.kt  (comes after Data>Remote>DTOs) and other Remote package components
+linking/mapping following items:
+Definition, Meaning, WordData to Worddata and WordDataEntity
+
+
 
 **Utils:**
 Adding Helper class (parameterized with a generic type T) in Utils package - DataStatus (Success, Loading, Error), date, message in a sealed class
@@ -99,6 +103,22 @@ and job coroutine
 fun fetchWordData()
 
 
+
+**Data**
+Remote>Dto
+DefinitionDTO - basic stuff : antonyms, definition, example, synonyms
+MeaningDTO - antonyms, definitions form definitionsDto, partOfSpeech, synonyms
+LicenceDto - name, url
+PhoneticDto - audio, licence from licenceDto, sourceUrl, text
+WordDataDto - word, phoneticDto, meaningDto, LicenceDto, sourceUrls
+WordDataEntity - word, phonetic, meanings, sourceUrls, date (Java util Date)
+
+
+
+**_Now that the back-end is complete, proceed to Presentation module_**
+
+Presentation> WordData > WordDataItem:
+DisplayWord - WordData + BookmarkedClicked
 
 
 
