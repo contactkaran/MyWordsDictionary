@@ -4,6 +4,6 @@ data class WordData(
     val word: String,
     val phonetic: String?,
     val meanings: List<Meaning>?,
-    val sourceURLs: List<String>?,
+    val sourceUrls: List<String>?,
     var isSaved: Boolean = false
 )

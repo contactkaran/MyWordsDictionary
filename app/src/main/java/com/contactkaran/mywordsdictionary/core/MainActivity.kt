@@ -43,16 +43,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//TODO - inserting Splash
+        //inserting Splash Screen
         installSplashScreen()
-
-
-
-
 
         setContent {
             val scaffoldState = rememberScaffoldState()
-            val navController = rememberNavController()
+
 
             MyWordsDictionaryTheme {
                 Scaffold(
@@ -61,10 +57,6 @@ class MainActivity : ComponentActivity() {
                     bottomBar = { DictionaryBottomAppBar() },
                     content = { paddingValues ->
                         MainContent(paddingValues)
-                        AppBottomNavGraph(
-                            modifier = Modifier.padding(paddingValues),
-                            navController = navController
-                        )
                     }
                 )
             }
@@ -74,6 +66,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainContent(paddingValues: PaddingValues) {
+    val navController = rememberNavController()
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -81,6 +74,10 @@ fun MainContent(paddingValues: PaddingValues) {
         Row() {
             Text(text = "What word do you want to search today?")
 
+            AppBottomNavGraph(
+                modifier = Modifier.padding(paddingValues),
+                navController = navController
+            )
 
         }
     }

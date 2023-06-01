@@ -7,6 +7,7 @@ import com.contactkaran.mywordsdictionary.domain.model.Definition
 import com.contactkaran.mywordsdictionary.domain.model.Meaning
 import com.contactkaran.mywordsdictionary.domain.model.WordData
 import com.contactkaran.mywordsdictionary.domain.model.entity.WordDataEntity
+import java.util.Date
 
 
 fun DefinitionDto.toDefinition(): Definition {
@@ -32,7 +33,12 @@ fun WordDataDto.toWordData(): WordData {
         meanings = meanings?.map { it.toMeaning() })
 }
 
-
-fun WordData.toWordDataEntity(): WordDataEntity{
-
+fun WordData.toWordDataEntity(): WordDataEntity {
+    return WordDataEntity(
+        word = word,
+        phonetic = phonetic,
+        meanings = meanings,
+        sourceUrls = sourceUrls,
+        date = Date()
+    )
 }

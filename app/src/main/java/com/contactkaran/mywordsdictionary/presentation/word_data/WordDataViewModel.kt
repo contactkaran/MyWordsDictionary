@@ -4,6 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.contactkaran.mywordsdictionary.domain.mappers.toWordDataEntity
 import com.contactkaran.mywordsdictionary.domain.model.WordData
 import com.contactkaran.mywordsdictionary.domain.use_case.AddIntoSaved
 import com.contactkaran.mywordsdictionary.domain.use_case.GetWordData
@@ -75,7 +76,6 @@ class WordDataViewModel @Inject constructor(
         }
     }
 
-
     fun saveOrRemoveWordData(wordData: WordData) {
         viewModelScope.launch(Dispatchers.IO) {
             with(wordData) {
@@ -84,5 +84,4 @@ class WordDataViewModel @Inject constructor(
             }
         }
     }
-
 }

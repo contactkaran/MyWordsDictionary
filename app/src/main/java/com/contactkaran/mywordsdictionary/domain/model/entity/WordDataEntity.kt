@@ -10,7 +10,7 @@ data class WordDataEntity(
     @PrimaryKey(autoGenerate = true) val id: Int? = null,
     val word: String,
     val phonetic: String?,
-    val meanings: List<Meaning>,
-    val sourceURLs: List<String>?,
+    val meanings: List<Meaning>?,
+    val sourceUrls: List<String>?,
     val date: Date?
 )
