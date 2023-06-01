@@ -1,4 +1,5 @@
-# MyWordsDictionary
+# MyWordsDictionary - the gives wor meanings and allows user to Favorite words and maintain them in a separate personal list
+
 DRAFT - Readme
 
 Steps: Manifest - Internet permissions
@@ -119,7 +120,18 @@ WordDataEntity - word, phonetic, meanings, sourceUrls, date (Java util Date)
 
 Presentation> WordData > WordDataItem:
 DisplayWord - WordData + BookmarkedClicked
+DisplayPhonetic - Text
+DisplayMeanings - meanings picked up from PartOFSpeech and DisplayDefinitions using forEach
+DisplayDefinitions further DisplayDefinition - definition + Example
+DisplaysourceUrls - list of sourceUrls
 
+Presentation > WordDataScreen:
+SearchBar() using with() - with() function ensures that the ViewModel object is not garbage collected while the SearchBar composable function is running. This way the wordQuery variable from main ViewModel is accessed, also the fetchWordData() is called.
+Resulting Composable WordDataList() in lazyColumn that populates items list along with Favorite click button
+
+Start building FavoriteWordScreen components:
+Presentation has two folders - WordDataScreens and SavedWordsDataScreens
+Start with ViewModel, which is aHiltViewModel, build in same way as WordDataViewModel
 
 
 
