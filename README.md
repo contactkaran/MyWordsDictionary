@@ -125,13 +125,21 @@ DisplayMeanings - meanings picked up from PartOFSpeech and DisplayDefinitions us
 DisplayDefinitions further DisplayDefinition - definition + Example
 DisplaysourceUrls - list of sourceUrls
 
-Presentation > WordDataScreen:
+Presentation > word_data >  WordDataScreen:
 SearchBar() using with() - with() function ensures that the ViewModel object is not garbage collected while the SearchBar composable function is running. This way the wordQuery variable from main ViewModel is accessed, also the fetchWordData() is called.
 Resulting Composable WordDataList() in lazyColumn that populates items list along with Favorite click button
 
 Start building FavoriteWordScreen components:
 Presentation has two folders - WordDataScreens and SavedWordsDataScreens
 Start with ViewModel, which is aHiltViewModel, build in same way as WordDataViewModel
-add files in use_case - GetSavedWords(pulls from SavedWordsRepo, uses Domain>utils>WordOrder sealed class objects), removeFromSaved
+add files in use_case - GetSavedWords(pulls from SavedWordsRepo, uses Domain>utils>WordOrder sealed class objects), removeFromSaved. calls SavedWordState data class
+Presentation > Saved_words > SavedWordsState data class with wordDataEntityItems (emptyList), filteresWordDataEntityItems(emptyList), isEmpty false, wordOrder descending
+It calls getWords fun where JOB is cancelled() or if not null, it is Launched
 
+So, the SavedWordsVM has getWords(), setFilteredList(), and removeWord()
 
+Presentation > Saved_words > SavedWordsItem Composable
+Again defining Composable funs DisplayWord(), DisplayPhonetic(), DisplayMeanings(), DisplaySourceUrls()
+
+Presentation > Components
+Defining two Composables - CustomRadioButton and OrderRadioButtons
