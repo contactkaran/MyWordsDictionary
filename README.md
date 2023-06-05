@@ -143,3 +143,38 @@ Again defining Composable funs DisplayWord(), DisplayPhonetic(), DisplayMeanings
 
 Presentation > Components
 Defining two Composables - CustomRadioButton and OrderRadioButtons
+
+
+DATA:
+> Remote stuff first
+DTO objs are already defined, need to defin the DictionaryAPIService - so that retrofit can know which data Endpoint to refer
+retrofit will @GET EndPoint using a sus fun getWordData() using the @Path "word" which returns a list of WordDataDto objects
+work in REMOTE is now DONE
+
+moving to defining local ROOM data DAO objs. in DATA>LOCAL>DATA_SOURCE
+defining SavedWordsDao and SavedWordsDatabase
+Data>local>data_source>SavedWordsDao:
+defining SQLite Queries
+
+Data>Local>data_source> SavedWordsDatabase - local Room database
+@Database name WordDataEntity
+Applying abstract class and companion obj
+
+
+Data > Local > Repo > SavedWordsRepoImpl
+
+
+
+Data > LOCAL > Utils > Converters - different TypeConverter  - Gson stuff
+
+moving to DATA > REPO where we define WordDataRepoImplemntation
+as it extends WordDataRepo, implement memebers i.e. getWordData (only one member)
+
+Missed defining Hilt injection for Disctionary class in CORE
+
+Defining the Data Injection package with App Module Object which is annotated with @Module. Giving instructions to Dagger Hilt. It is installed as a Singleton Compoinent, meaning that its life is only valid till Singleton fun is accessed. Hence using the annotation @InstallIn
+
+Provide a DictionaryAPIService fun that returns RetrofitBuilder from the remote API url
+define othe rProvider funs
+
+
