@@ -30,7 +30,7 @@ class SavedWordsViewModel @Inject constructor(
         getWords(WordOrder.Descending)
     }
 
-    private fun getWords(wordOrder: WordOrder, wordQuery: String = "") {
+    fun getWords(wordOrder: WordOrder, wordQuery: String = "") {
         job?.cancel()
         job = viewModelScope.launch(Dispatchers.IO) {
             getSavedWords(wordOrder).collectLatest { wordDataEntities ->

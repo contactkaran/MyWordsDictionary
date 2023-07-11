@@ -9,10 +9,10 @@ import com.contactkaran.mywordsdictionary.utils.DataStatus
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class WordDataRepoImpl (
+class WordDataRepoImpl(
     private val dictionaryApi: DictionaryApiService,
     private val dao: SavedWordsDao
-        ) : WordDataRepo {
+) : WordDataRepo {
     override fun getWordData(word: String): Flow<DataStatus<List<WordData>>> = flow {
         emit(DataStatus.Loading())
         try {

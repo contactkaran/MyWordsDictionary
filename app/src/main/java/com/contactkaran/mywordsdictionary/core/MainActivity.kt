@@ -50,19 +50,18 @@ class MainActivity : ComponentActivity() {
                     bottomBar = { BottomBar(navController = navController) },
                     content = { paddingValues ->
                         Column(
-                                modifier = Modifier.fillMaxWidth(),
-                        horizontalAlignment = Alignment.CenterHorizontally
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-                        Row() {
-                            Text(text = "What word do you want to search today?")
+                            Row() {
+                                Text(text = "What word do you want to search today?")
 
-                            BottomNavGraph(
-                                modifier = Modifier.padding(paddingValues),
-                                navController = navController
-                            )
-
+                                BottomNavGraph(
+                                    modifier = Modifier.padding(paddingValues),
+                                    navController = navController
+                                )
+                            }
                         }
-                    }
                     }
                 )
             }

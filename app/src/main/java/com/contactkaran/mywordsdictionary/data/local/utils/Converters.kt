@@ -4,7 +4,7 @@ import androidx.room.TypeConverter
 import com.contactkaran.mywordsdictionary.domain.model.Meaning
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import java.util.Date
+import java.util.*
 
 class Converters {
 
@@ -39,6 +39,5 @@ class Converters {
     fun stringListToString(list: List<String>?): String? {
         return Gson().toJson(list)
     }
-
 
 }
