@@ -30,8 +30,10 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideDictionaryApi(): DictionaryApiService{
-        return Retrofit.Builder().baseUrl("https://api.dictionaryapi.dev/").addConverterFactory(GsonConverterFactory.create()).build().create(DictionaryApiService::class.java)
+    fun provideDictionaryApi(): DictionaryApiService {
+        return Retrofit.Builder().baseUrl("https://api.dictionaryapi.dev/")
+            .addConverterFactory(GsonConverterFactory.create()).build()
+            .create(DictionaryApiService::class.java)
     }
 
     @Provides

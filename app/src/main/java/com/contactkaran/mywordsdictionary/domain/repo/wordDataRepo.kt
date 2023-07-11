@@ -5,6 +5,8 @@ import com.contactkaran.mywordsdictionary.utils.DataStatus
 import kotlinx.coroutines.flow.Flow
 
 
-interface WordDataRepo{
+interface WordDataRepo {
+
     fun getWordData(word: String): Flow<DataStatus<List<WordData>>>
+
 }

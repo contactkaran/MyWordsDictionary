@@ -18,14 +18,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SavedWordsViewModel @Inject constructor(
-    private val getSavedWords: GetSavedWords,
-    private val removeFromSaved: RemoveFromSaved
-    ) : ViewModel(){
+    private val getSavedWords: GetSavedWords, private val removeFromSaved: RemoveFromSaved
+) : ViewModel() {
 
     private val _state = MutableStateFlow(SavedWordsState())
     val state = _state.asStateFlow()
 
     private var job: Job? = null
+
     init {
         getWords(WordOrder.Descending)
     }
@@ -42,15 +42,13 @@ class SavedWordsViewModel @Inject constructor(
                         isEmpty = wordDataEntities.isEmpty() || filteredWordDataEntityItems.isEmpty(),
                         wordOrder = wordOrder
                     )
-
                 }
             }
         }
     }
 
     private fun setFilteredList(
-        wordDataEntities: List<WordDataEntity>,
-        wordQuery: String
+        wordDataEntities: List<WordDataEntity>, wordQuery: String
     ): List<WordDataEntity> {
         return wordDataEntities.filter { wordDataEntity ->
             wordDataEntity.word.contains(wordQuery, ignoreCase = true)
@@ -64,6 +62,5 @@ class SavedWordsViewModel @Inject constructor(
             }
         }
     }
-
 
 }

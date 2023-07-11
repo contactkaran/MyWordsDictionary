@@ -7,9 +7,9 @@ import kotlinx.coroutines.flow.Flow
 
 class GetWordData(
     private val repo: WordDataRepo
-){
+) {
     operator fun invoke(word: String): Flow<DataStatus<List<WordData>>>? {
-        if(word.isNotBlank()) return repo.getWordData(word.trim())
+        if (word.isNotBlank()) return repo.getWordData(word.trim())
         return null
     }
 }

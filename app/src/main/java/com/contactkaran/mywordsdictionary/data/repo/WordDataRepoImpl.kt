@@ -10,8 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class WordDataRepoImpl(
-    private val dictionaryApi: DictionaryApiService,
-    private val dao: SavedWordsDao
+    private val dictionaryApi: DictionaryApiService, private val dao: SavedWordsDao
 ) : WordDataRepo {
     override fun getWordData(word: String): Flow<DataStatus<List<WordData>>> = flow {
         emit(DataStatus.Loading())

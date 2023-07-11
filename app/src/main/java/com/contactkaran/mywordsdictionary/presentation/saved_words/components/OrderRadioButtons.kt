@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.contactkaran.mywordsdictionary.domain.utils.WordOrder
+import com.contactkaran.mywordsdictionary.ui.theme.SpaceSize
 
 @Composable
 fun OrderRadioButtons(
@@ -21,7 +22,7 @@ fun OrderRadioButtons(
             selected = wordOrder is WordOrder.Ascending,
             onSelect = { onOrderChange(WordOrder.Ascending) })
 
-        Spacer(modifier = Modifier.width(3.dp))
+        Spacer(modifier = Modifier.width(SpaceSize.Large))
 
         CustomRadioButton(text = "Descending",
             selected = wordOrder is WordOrder.Descending,

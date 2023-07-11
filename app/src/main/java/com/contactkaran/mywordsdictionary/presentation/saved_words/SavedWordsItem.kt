@@ -3,7 +3,10 @@ package com.contactkaran.mywordsdictionary.presentation.saved_words
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
@@ -16,6 +19,9 @@ import androidx.compose.ui.text.font.FontWeight
 import com.contactkaran.mywordsdictionary.domain.model.Definition
 import com.contactkaran.mywordsdictionary.domain.model.Meaning
 import com.contactkaran.mywordsdictionary.domain.model.entity.WordDataEntity
+import com.contactkaran.mywordsdictionary.ui.theme.FontSizes
+import com.contactkaran.mywordsdictionary.ui.theme.SpaceSize
+import com.contactkaran.mywordsdictionary.utils.HyperlinkText
 
 @Composable
 fun SavedWordsItem(wordDataEntity: WordDataEntity, onBookmarkClicked: (WordDataEntity) -> Unit) {
@@ -34,11 +40,10 @@ private fun DisplayWord(
     Row(modifier = Modifier.fillMaxWidth()) {
         Text(
             text = wordDataEntity.word,
-            fontStyle = FontStyle.Normal,
+            fontSize = FontSizes.ExtraLarge,
             fontWeight = FontWeight.ExtraBold
         )
-//        Spacer(modifier = Modifier.width(3.dp)
-        Text(text = "")
+        Spacer(modifier = Modifier.width(SpaceSize.Normal))
         Icon(imageVector = Icons.Default.Bookmark,
             contentDescription = null,
             modifier = Modifier
@@ -49,11 +54,10 @@ private fun DisplayWord(
     }
 }
 
-
 @Composable
 private fun DisplayPhonetic(phonetic: String?) {
     Text(text = phonetic ?: "")
-    Text(text = "")
+    Spacer(modifier = Modifier.height(SpaceSize.Small))
 }
 
 @Composable
@@ -66,7 +70,7 @@ private fun DisplayMeanings(meanings: List<Meaning>?) {
 
 @Composable
 private fun DisplayPartOfSpeech(partOfSpeech: String?) {
-    Text(text = partOfSpeech ?: "", fontStyle = FontStyle.Normal, fontWeight = FontWeight.Bold)
+    Text(text = partOfSpeech ?: "", fontSize = FontSizes.Large, fontWeight = FontWeight.Bold)
 }
 
 @Composable
@@ -79,19 +83,20 @@ private fun DisplayDefinitions(definitions: List<Definition>?) {
 @Composable
 private fun DisplayDefinition(index: Int, definition: Definition?) {
     Text(text = "${index + 1}. ${definition?.definition ?: ""}")
-    Text(text = "")
+    Spacer(modifier = Modifier.height(SpaceSize.Small))
     Text(text = "Example: ${definition?.example ?: ""}")
-    Text(text = "")
+    Spacer(modifier = Modifier.height(SpaceSize.Normal))
 }
 
 @Composable
-fun DisplaySourceUrls(sourceUrls: List<String>?) {
-
-    androidx.compose.material3.Text(text = "Source: ", fontStyle = FontStyle.Italic)
+private fun DisplaySourceUrls(sourceUrls: List<String>?) {
+    Text(text = "Source:", fontSize = FontSizes.Small)
     sourceUrls?.forEach { sourceUrl ->
-        androidx.compose.material3.Text(
-            modifier = Modifier,
-            text = "$sourceUrls"
+        HyperlinkText(
+            fullText = sourceUrl, hyperLinks = mapOf(
+                sourceUrl to sourceUrl
+            ), fontSize = FontSizes.Small
         )
     }
+    Spacer(modifier = Modifier.height(SpaceSize.Large))
 }

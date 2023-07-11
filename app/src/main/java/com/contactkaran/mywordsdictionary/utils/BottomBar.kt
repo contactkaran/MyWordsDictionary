@@ -14,7 +14,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.contactkaran.mywordsdictionary.presentation.Destinations
+import com.contactkaran.mywordsdictionary.presentation.Screen
 import com.contactkaran.mywordsdictionary.presentation.saved_words.SavedWordsScreen
 import com.contactkaran.mywordsdictionary.presentation.word_data.WordDataScreen
 
@@ -23,7 +23,7 @@ fun BottomBar(
     navController: NavHostController
 ) {
     val screens = listOf(
-        Destinations.WordDataScreen, Destinations.FavoriteWordScreen
+        Screen.WordDataScreen, Screen.SavedWordsScreen
     )
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -42,7 +42,7 @@ fun BottomBar(
 
 @Composable
 fun RowScope.AddItem(
-    screen: Destinations, currentDestination: NavDestination?, navController: NavHostController
+    screen: Screen, currentDestination: NavDestination?, navController: NavHostController
 ) {
     BottomNavigationItem(
         label = { Text(text = screen.title) },
@@ -64,12 +64,12 @@ fun BottomNavGraph(
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = Destinations.WordDataScreen.route
+        startDestination = Screen.WordDataScreen.route
     ) {
-        composable(route = Destinations.WordDataScreen.route) {
+        composable(route = Screen.WordDataScreen.route) {
             WordDataScreen()
         }
-        composable(route = Destinations.FavoriteWordScreen.route) {
+        composable(route = Screen.SavedWordsScreen.route) {
             SavedWordsScreen()
         }
     }
