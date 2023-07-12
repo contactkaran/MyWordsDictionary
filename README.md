@@ -1,5 +1,5 @@
 # MyWordsDictionary
-This app provides dictionary word meanings. It also allows users to favorite words and maintain them in a separate personal list.
+This app provides dictionary word meanings. It also allows users to favorite words and maintain them in a separate personal list. It consumes free dictionary API from https://dictionaryapi.dev/
 Features
 
     Provides definitions for English words
